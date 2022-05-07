@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>vue3</title>
+  </head>
+  <body>
+    <div id="app">
+     <!-- <h2>reactive</h2>
+      <ul>
+        <li>
+          <h3>{{observed.count1}}</h3>
+          <button @click="observed.count1++">count1++</button>
+        </li>
+        <li>
+          <h3>{{observed.count2}}</h3>
+          <button @click="observed.count2++">count2++</button>
+        </li>
+      </ul>
+      <h2>ref</h2>
+      <ul>
+        <li>
+          <h3>ref {{count}}</h3>
+          <button @click="count++">count1++</button>
+        </li>
+      </ul>
+      <h2>computed</h2>
+      <ul>
+        <li>
+          <h3>computed {{computedCount}}</h3>
+          <button @click="count++">computed count1++</button>
+        </li>
+      </ul>-->
+    </div>
+  </body>
+</html>
+<script src="../../public/vue.global.js"></script>
+<!--<script>
+  const { createApp, reactive, effect, ref, computed } = Vue
+  createApp({
+    setup() {
+      /**
+       * reactive
+       */
+      const observed = reactive({
+        count1: 1,
+        count2: 10,
+      })
+      effect(() => {
+        effect(() => {
+          console.log('effect count2', observed.count2)
+        })
+        console.log('effect count1', observed.count1)
+      })
+      /**
+       * ref
+       */
+      const count = ref(1)
+      effect(() => {
+        console.log('effect count', count.value)
+      })
+      /**
+       * computed
+       */
+      const computedCount = computed(() => {
+        return count.value * 2
+      })
+      effect(() => {
+        console.log('effect computed', count.value)
+      })
+      return {
+        observed,
+        count,
+        computedCount
+      }
+    },
+  }).mount('#app')
+</script>-->
+<script>
+  const { createApp, h } = Vue
+  createApp({
+    setup() {
+      console.log(h('h2', {}, 'div'))
+    }
+  }).mount('#app')
+</script>
